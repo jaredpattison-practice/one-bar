@@ -19,7 +19,7 @@ app.get('/sms', (request,response) => {
   console.log(`From number: ${request.query.From}`)
   client.messages
     .create({
-      body: `Your phone number is ${request.query.From} with the message: ${request.query.Body} (This message brought to you by the JAAM corporation), Hi Andrew :)`,
+      body: `Your phone number is ${request.query.From} with the message: ${request.query.Body}`,
       from: '+12537859363',
       to: request.query.From 
     })
