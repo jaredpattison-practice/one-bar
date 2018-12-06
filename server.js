@@ -15,12 +15,13 @@ const client = require('twilio')(accountSid, authToken);
 
 app.get('/sms', (request,response) => {
   console.log('sms route hit');
-  console.log(request.query)
+  console.log(`request.query.Body: ${request.query.Body}`)
+  console.log(`From number: ${request.query.From}`)
   client.messages
     .create({
-      body: `This should be what you texted us: ${request} (This message brought to you by the JAAM corporation), Hi Andrew :)`,
+      body: `Your phone number is ${request.query.From} with the message: ${request.query.Body} (This message brought to you by the JAAM corporation), Hi Andrew :)`,
       from: '+12537859363',
-      to: '+12533101489'
+      to: request.query.From 
     })
     .then( message => {
       console.log(message.sid);
