@@ -17,9 +17,9 @@ app.get('/sms', (request,response) => {
   console.log('weather route hit');
   client.messages
     .create({
-      body: 'Hello, you just pinged one-bar. This would be your information.',
+      body: 'Hello, you just pinged one-bar. This would be your information. (This message brought to you by the JAAM corporation',
       from: '+12537859363',
-      to: '+12068497029'
+      to: '+12103631168'
     })
     .then( message => {
       console.log(message.sid);
