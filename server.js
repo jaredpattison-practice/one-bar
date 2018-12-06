@@ -50,7 +50,7 @@ app.get('*', (request, response) => {
 app.post('/sms', (req, res) => {
   const twiml = new MessagingResponse();
 
-  twiml.message('The Visgoths are coming! Head for the hills!');
+  twiml.message('Thanks for pinging one-bar, this is a response to your sms request');
 
   res.writeHead(200, {'Content-Type': 'text/xml'});
   res.end(twiml.toString());
