@@ -15,7 +15,7 @@ const client = require('twilio')(accountSid, authToken);
 
 app.get('/sms', (request,response) => {
   console.log('sms route hit');
-  console.log(request)
+  console.log(request.query)
   client.messages
     .create({
       body: `This should be what you texted us: ${request} (This message brought to you by the JAAM corporation), Hi Andrew :)`,
