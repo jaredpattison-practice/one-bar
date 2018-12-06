@@ -14,10 +14,11 @@ const authToken = process.env.TWILIO_TOKEN;
 const client = require('twilio')(accountSid, authToken);
 
 app.get('/sms', (request,response) => {
-  console.log('weather route hit');
+  console.log('sms route hit');
+  console.log(request)
   client.messages
     .create({
-      body: 'Hello, you just pinged one-bar. This would be your information. (This message brought to you by the JAAM corporation), Hi Andrew :)',
+      body: `This should be what you texted us: ${request} (This message brought to you by the JAAM corporation), Hi Andrew :)`,
       from: '+12537859363',
       to: '+12533101489'
     })
